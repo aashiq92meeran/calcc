@@ -46,7 +46,7 @@
 -(IBAction)buttonOperation:(id)op
 {
     
-    opera=plus;
+    b=1;
     
     [display setText:@"+"];
     //if Plus is pressed multiple times
@@ -66,7 +66,7 @@
 -(IBAction)buttonOperationMinus:(id)op{
     [display setText:@"-"];
     
-    opera=minus;
+    b=2;
     
     //if Plus is pressed multiple times
     if(pValue==0)
@@ -76,7 +76,8 @@
 }
 -(IBAction)buttonOperationMultiply:(id)op
 {
-    opera=multiply;
+    b=3;
+    
     [display setText:@"*"];
     //if Plus is pressed multiple times
     if(pValue==0)
@@ -85,19 +86,19 @@
 }
 -(IBAction)buttonOperationDivide:(id)op
 {
-    opera=divide;
+    b=4;
     
     [display setText:@"/"];
     //if Plus is pressed multiple times
     
     if(pValue==0)
-        pValue=[values floatValue];
+        pValue=[values integerValue];
     
     else
     {
-        cValue=[values floatValue];
-        pValue/=cValue;
-        NSString *result=[NSString stringWithFormat:@"%f",pValue];
+        cValue=[values integerValue];
+        pValue=(int)pValue/cValue;
+        NSString *result=[NSString stringWithFormat:@"%d",pValue];
         [display setText:result];
         
     }
@@ -109,8 +110,8 @@
 -(IBAction)buttonOperationEqual:(id)op
 {
     
-    switch (opera) {
-        case plus:
+    switch (b) {
+        case 1:
         {
             cValue=[values integerValue];
             pValue+=cValue;
@@ -121,7 +122,7 @@
             break;
         }
             
-        case minus:
+        case 2:
         {
             cValue=[values integerValue];
             pValue-=cValue;
@@ -131,7 +132,7 @@
             break;
         }
         
-        case multiply:
+        case 3:
         
         {
             cValue=[values integerValue];
@@ -141,12 +142,12 @@
             pValue=0;
             break;
         }
-        case divide:
+        case 4:
         
         {
-            cValue=[values floatValue];
-            a=pValue/cValue;
-            NSString *result=[NSString stringWithFormat:@"%f",a];
+            cValue=[values integerValue];
+            pValue=(int)pValue/cValue;
+            NSString *result=[NSString stringWithFormat:@"%d",pValue];
             [display setText:result];
             pValue=0;
             break;

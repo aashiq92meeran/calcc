@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {plus, minus, multiply, divide, equal} caloperation ;
+
 @interface MYViewController : UIViewController
 {
 IBOutlet UILabel *display;
-caloperation opera;
+
 
 NSMutableString *values;
 
 int pValue,cValue;
   
     float a;
+    int b;
 
 int res;
 }
