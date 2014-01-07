@@ -16,7 +16,9 @@ caloperation opera;
 
 NSMutableString *values;
 
-float pValue,cValue;
+int pValue,cValue;
+  
+    float a;
 
 int res;
 }

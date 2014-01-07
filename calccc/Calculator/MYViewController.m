@@ -145,8 +145,8 @@
         
         {
             cValue=[values floatValue];
-            pValue/=cValue;
-            NSString *result=[NSString stringWithFormat:@"%f",pValue];
+            a=pValue/cValue;
+            NSString *result=[NSString stringWithFormat:@"%f",a];
             [display setText:result];
             pValue=0;
             break;
